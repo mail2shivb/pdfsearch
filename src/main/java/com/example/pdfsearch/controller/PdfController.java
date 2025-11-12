@@ -2,7 +2,7 @@ package com.example.pdfsearch.controller;
 
 import com.example.pdfsearch.model.PdfRequest;
 import com.example.pdfsearch.model.PdfResponse;
-lombok.extern.slf4j.Slf4j;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.apache.pdfbox.pdmodel.PDDocument;
@@ -35,8 +35,7 @@ public class PdfController {
                     stripper.setStartPage(p);
                     stripper.setEndPage(p);
                     String pageText = stripper.getText(document);
-                    String markdown = "## Page " + p + "\n\n" + pageText.replaceAll("(\\r\\n|\\n)", "  
-");
+                    String markdown = "## Page " + p + "\n\n" + pageText.replaceAll("(\\r\\n|\\n)", "  \n");
                     pagesMarkdown.add(markdown);
                 }
 
